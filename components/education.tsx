@@ -1,13 +1,12 @@
-import { Award, CalendarDays, GraduationCap, MapPin } from 'lucide-react'
+import { CalendarDays, GraduationCap, MapPin } from 'lucide-react'
 import { education } from '@/lib/portfolio-data'
 import { Section } from '@/components/section'
 import { Reveal } from '@/components/reveal'
 
 export function Education() {
   const meta = [
-    { icon: CalendarDays, value: education.duration },
+    { icon: CalendarDays, value: education.status },
     { icon: MapPin, value: education.location },
-    { icon: Award, value: education.grade },
   ]
 
   return (
@@ -37,9 +36,9 @@ export function Education() {
               </div>
 
               <div>
-                <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Relevant coursework</h4>
+                <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Areas of interest</h4>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {education.coursework.map((course) => (
+                  {education.interests.map((course) => (
                     <li
                       key={course}
                       className="rounded-full border border-border bg-white/[0.03] px-3 py-1.5 text-sm transition-colors hover:border-violet/50"

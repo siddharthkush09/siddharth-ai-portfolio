@@ -73,7 +73,7 @@ function HeroVisual() {
       <div className="absolute inset-14 rounded-[2.5rem] bg-brand-gradient p-px shadow-[0_0_80px_-10px] shadow-violet/40">
         <div className="flex h-full flex-col items-center justify-center gap-3 rounded-[2.5rem] bg-card/95 p-6 text-center">
           <span className="font-heading text-6xl font-bold text-gradient md:text-7xl">{profile.initials}</span>
-          <span className="text-xs text-muted-foreground">{'[Replace with your photo]'}</span>
+          <span className="text-xs uppercase tracking-wider text-muted-foreground">Parul University</span>
         </div>
       </div>
 

@@ -14,12 +14,14 @@ export function About() {
               {p}
             </p>
           ))}
-          <div className="pt-3">
-            <LinkButton href={profile.resumeUrl} variant="outline">
-              <Download />
-              Download Resume
-            </LinkButton>
-          </div>
+          {profile.resumeUrl ? (
+            <div className="pt-3">
+              <LinkButton href={profile.resumeUrl} variant="outline">
+                <Download />
+                Download Resume
+              </LinkButton>
+            </div>
+          ) : null}
         </Reveal>
 
         <ul className="grid grid-cols-2 gap-4">

@@ -10,8 +10,8 @@ export function Projects() {
     <Section
       id="projects"
       eyebrow="Projects"
-      title="Things I have been building"
-      description="A selection of projects. Replace these placeholder cards with your own work, links, and tech stack."
+      title="Sample & learning projects"
+      description="Project concepts that reflect the areas I am learning. These will be replaced with my own completed work as I build it."
     >
       <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
@@ -36,6 +36,9 @@ function ProjectCard({ project }: { project: Project }) {
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+        <span className="absolute top-4 left-4 rounded-full border border-violet/40 bg-background/80 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
+          {project.label}
+        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
@@ -50,15 +53,20 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
 
         <div className="mt-6 flex items-center gap-4 border-t border-border pt-5 text-sm">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <GithubIcon className="size-4" />
-            Code
-          </a>
+          {!project.githubUrl && !project.liveUrl ? (
+            <span className="text-muted-foreground">Project links will be added once built</span>
+          ) : null}
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <GithubIcon className="size-4" />
+              Code
+            </a>
+          ) : null}
           {project.liveUrl ? (
             <a
               href={project.liveUrl}
