@@ -47,15 +47,21 @@ export function Hero() {
               <MapPin className="size-4 text-cyan" />
               {profile.location}
             </span>
-            <span aria-hidden="true" className="h-4 w-px bg-border" />
-            <a href={socials.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
-              <GithubIcon className="size-5" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a href={socials.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
-              <LinkedinIcon className="size-5" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
+            {socials.github || socials.linkedin ? (
+              <span aria-hidden="true" className="h-4 w-px bg-border" />
+            ) : null}
+            {socials.github ? (
+              <a href={socials.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+                <GithubIcon className="size-5" />
+                <span className="sr-only">GitHub</span>
+              </a>
+            ) : null}
+            {socials.linkedin ? (
+              <a href={socials.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+                <LinkedinIcon className="size-5" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+            ) : null}
           </div>
         </div>
 

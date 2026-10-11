@@ -1,4 +1,4 @@
-import { ArrowUpRight, GraduationCap, Mail, MapPin, type LucideIcon } from 'lucide-react'
+import { ArrowUpRight, BookOpen, Briefcase, GraduationCap, Mail, MapPin, type LucideIcon } from 'lucide-react'
 import type { ComponentType, SVGProps } from 'react'
 import { profile, socials } from '@/lib/portfolio-data'
 import { Section } from '@/components/section'
@@ -19,12 +19,17 @@ export function Contact() {
     ...(profile.email
       ? [{ label: 'Email', value: profile.email, href: `mailto:${profile.email}`, icon: Mail }]
       : []),
-    { label: 'LinkedIn', value: 'Connect with me', href: socials.linkedin, icon: LinkedinIcon, external: true },
-    { label: 'GitHub', value: 'View my code', href: socials.github, icon: GithubIcon, external: true },
+    ...(socials.linkedin
+      ? [{ label: 'LinkedIn', value: 'Connect with me', href: socials.linkedin, icon: LinkedinIcon, external: true }]
+      : []),
+    ...(socials.github
+      ? [{ label: 'GitHub', value: 'View my code', href: socials.github, icon: GithubIcon, external: true }]
+      : []),
     { label: 'Location', value: profile.location, icon: MapPin },
     { label: 'University', value: 'Parul University', icon: GraduationCap },
+    { label: 'Program', value: 'B.Tech CSE (Artificial Intelligence)', icon: BookOpen },
+    { label: 'Status', value: profile.availability, icon: Briefcase },
   ]
-  const primaryHref = profile.email ? `mailto:${profile.email}` : socials.linkedin
 
   return (
     <Section id="contact" eyebrow="Contact" title="Let's connect">
@@ -39,13 +44,13 @@ export function Contact() {
             </p>
           </div>
           {profile.email ? (
-            <LinkButton href={primaryHref} className="self-start">
+            <LinkButton href={`mailto:${profile.email}`} className="self-start">
               <Mail />
               Send me an email
             </LinkButton>
-          ) : (
+          ) : socials.linkedin ? (
             <a
-              href={primaryHref}
+              href={socials.linkedin}
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-11 items-center gap-2 self-start rounded-full bg-brand-gradient px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
@@ -53,6 +58,11 @@ export function Contact() {
               <LinkedinIcon className="size-4" aria-hidden="true" />
               Connect on LinkedIn
             </a>
+          ) : (
+            <LinkButton href="#projects" variant="outline" className="self-start">
+              <ArrowUpRight />
+              Explore my projects
+            </LinkButton>
           )}
         </Reveal>
 
@@ -81,7 +91,7 @@ function ContactCard({ item }: { item: ContactItem }) {
         ) : null}
       </div>
       <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">{item.label}</p>
-      <p className="mt-1 break-all font-medium">{item.value}</p>
+      <p className="mt-1 break-words font-medium text-pretty">{item.value}</p>
     </>
   )
 

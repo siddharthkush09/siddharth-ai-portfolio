@@ -2,7 +2,7 @@
 // Optional fields (email, resumeUrl, project links) are hidden on the site while left empty.
 
 export const profile = {
-  name: 'Siddharth Kushwaha',
+  name: 'Siddharth Kushwah',
   initials: 'SK',
   role: 'AI & Software Development Student',
   intro:
@@ -13,10 +13,11 @@ export const profile = {
   availability: 'Seeking internship opportunities',
 }
 
-// Replace these with your own profile URLs.
+// Add your full profile URLs here, e.g. 'https://www.linkedin.com/in/...'.
+// Links stay hidden on the site until a URL is provided.
 export const socials = {
-  linkedin: 'https://www.linkedin.com/in/your-profile',
-  github: 'https://github.com/your-username',
+  linkedin: '',
+  github: '',
 }
 
 export const navLinks = [
@@ -29,7 +30,7 @@ export const navLinks = [
 
 export const about = {
   paragraphs: [
-    'I am Siddharth Kushwaha, currently pursuing my B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence at Parul University in Vadodara, Gujarat.',
+    'I am Siddharth Kushwah, currently pursuing my B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence at Parul University in Vadodara, Gujarat.',
     'My interests sit at the intersection of software engineering and intelligent systems. I am building a strong foundation in programming with C, Java, and Python, learning web development with HTML, CSS, and JavaScript, and exploring the core ideas behind AI and machine learning.',
     'I am looking for an internship where I can learn from experienced engineers, contribute to real projects, and keep growing as a developer.',
   ],
