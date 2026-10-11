@@ -26,6 +26,9 @@ export function Hero() {
             {"Hi, I'm "}
             <span className="text-gradient">{profile.name}</span>
           </h1>
+          <p className="mt-3 text-base font-medium text-muted-foreground sm:text-lg">
+            Now on GitHub <span aria-hidden="true">🚀</span>
+          </p>
           <p className="mt-5 font-heading text-xl font-medium text-foreground/90 md:text-2xl">{profile.role}</p>
           <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground text-pretty md:text-lg">
             {profile.intro}
